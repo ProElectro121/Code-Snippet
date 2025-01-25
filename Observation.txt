@@ -1,0 +1,72 @@
+Graph section
+
+1. Minimum number of edges that can be connected to a given node is the number of
+   connected componenet to the given node.
+   https://codeforces.com/contest/1133/problem/F2
+
+2. If i want to make all element equal of an array , sort then take gcd of the abssolute 
+   difference of the concecutive elements
+
+3. while using pair as a key in the map .  make sure to store in a pair and not compare
+   using curly braces .  else compiler will think it as a vector
+
+4. We can maintain a counter like during dfs/bfs we want current dfs call should not interfer with preious dfs call
+   can we update the counter for each non visited call
+   refernce: https://codeforces.com/contest/1365/submission/236746261 
+
+5. There are atmost 2 centroid in a tree , for a tree have 2 centroid , the two nodes have 
+   to be adjacent and the number of nodes in the subtree of these two will be n / 2, ie if a tree have odd number of nodes then only 1 centroid
+
+6. for making two element equal take Gcd of their difference
+
+7. To check for overflow : check for inf / x >= y when we have to multiply x and y  
+
+8. for finding nodes that can visit a node x ,  reverse the edges and do a dfs from node x
+   the visited can reach node x.
+
+9. if p is a prime number and a is not divisible by p, then a ^ (p - 1) % p = 1
+
+10. use of name such as count , left , right while in main or function is valid, but you can't use them as globally
+
+11. If we have constraint <= 5e4 then we can do optimisation using bitset like when we
+have to count then number of nodes reachable from a given node in a DAG
+
+
+12. Meet in the middle.
+Can be also used to calculate things in a matrix, of size ~ 40
+instead of going from (0 , 0) to (n - 1 , m - 1) try to devide in two part , first
+of length of (n + m) / 2 and remaoning of length of n + m - first;
+try to calculate reqquire things for first half from (0 , 0) and going down and right and for the second half start from (n - 1, m - 1) and go left and up.
+And at the meeting point merge the answer for two
+
+
+13. when we have to perform a operation on a array / string , on a index for a range like invert all the bit from index i to index i + mid. then in this case we can use a multiset
+to maintain the endpoint of the range in a multiset and the current number of point in the
+multiset will denote the number of range convering that point
+
+14. if the array sum is less. we can see this in the direction of bitset / dp. 
+We can accumulate all the subset sum (max would be the sum of the array) and do opeartions accordingly
+
+
+15. if we have given a graph and we want to find the length of cycle only in the graph
+we can make use of the indegree concept. Mark all the node visited which are not part of the cycle during removing nnodes which are not part of the cycle
+https://codeforces.com/contest/1867/submission/261292040
+ 
+16. * > / > % > + (precedence order)
+
+17. if we are xoring a number x with y and range of the y lies in (0 to M) , then x would lie in the range of (x - M , x + M);
+
+18. Findind the hamilton cycle in a graph ,we can use dp with bitmasking. first we make a
+vis array ,  such that vis[i][j] we can go from i to j. initially we have all zeo
+ie  (-1 , 0) -> (ind , mask). then traverse nodes check from each i from 0 to n , if they are not set , then make a transisiotn from (i , mask | (1 << i)). use dp to memoise.
+
+19. When accessing multiset with pairs , try to  use it with -> operator else it can cause TLE
+ex let pair be multiset<pair<int,int>> ms; use ms.begin -> first , instead of *(ms.begin()).second
+
+20. Suppose you want to find the number of nodes for each nodes of a edges , then in case of tree you can find it using a simple
+dfs but in case of graph , we have to use the concept of tin nad mintin , and we can do this only for critical edge else it wil not make sense
+
+21. Let say if we want to make two element equal something mod ,  like we have two integers x and y ,  and we want to find a mod ,  succh that x % mod = y % mod;
+This can be find by all the factors of abs(x - y);
+
+22. While passing TrieNode as a parameter in the function and the function involves backtracking then make sure "dont" pass it as a reference
